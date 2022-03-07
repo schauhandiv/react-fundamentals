@@ -10,20 +10,43 @@
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   -->
 
+  <!-- 1, 2, 3 are part of exercise -->
+  <!-- 1... Get React n ReactDOM scripts -->
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+
   <script type="module">
     const rootElement = document.getElementById('root')
 
-    // You're going to re-implement this code using React!
-    // 💣 So go ahead and delete this implementation (or comment it out for now)
-    // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.render
-    rootElement.append(element)
+    // // 2... comment out JS way of doing things
+    // // You're going to re-implement this code using React!
+    // // 💣 So go ahead and delete this implementation (or comment it out for now)
+    // // These three lines are similar to React.createElement
+    // const element = document.createElement('div')
+    // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
+    // element.className = 'container' // 💰 in React, this is also called the "className" prop
+    // // This is similar to ReactDOM.render
+    // rootElement.append(element)
 
-    // 🐨 Please re-implement the regular document.createElement code above
-    // with these React API calls
-    // 💰 The example in the markdown file should be a good hint for you.
+    // // 🐨 Please re-implement the regular document.createElement code above
+    // // with these React API calls
+    // // 💰 The example in the markdown file should be a good hint for you.
+    // // 3... Use React API to do what we did with JS in Ex.1
+    // const elementProps = {id: 'hello', children: 'Hello World!!!!', className: 'container'}
+    // const elementType = 'div'
+    // const reactElement = React.createElement(elementType, elementProps)
+    // ReactDOM.render(reactElement, rootElement)
+
+    // 4... Extra Credit (show hello world as two separate span elements, learn nesting)
+    const reactSpanElementHello = React.createElement('span', {children: 'Hello'})
+    const reactSpanElementWorld = React.createElement('span', {children: 'World!'})
+    // Way 1... pass children as 3rd and later argument
+    const reactDivElement = React.createElement('div', {className: 'container'}, reactSpanElementHello, reactSpanElementWorld)    
+    // Way 2... pass children as 'children' prop (this give a warning about unique 'key')
+    // const reactDivElement = React.createElement('div', {className: 'container', children: [reactSpanElementHello, reactSpanElementWorld]} )
+    // Way 3... see the /final folder. it uses way 1 to for span elements (I used way 2 for it)
+    ReactDOM.render(reactDivElement, rootElement)
+
+
   </script>
 </body>
