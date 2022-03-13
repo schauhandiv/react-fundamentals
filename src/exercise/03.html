@@ -10,16 +10,34 @@
        💰 Here is the script tag that'll do the job:
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   -->
+  <!-- 1... add babel -->
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
 
-  <script type="module">
+  <!-- 2... make babel compile code in browser -->
+  <script type="text/babel">
     // 🐨 on the script tag above, change `type="module"`
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
+    // 3... 
     // 🐨 re-implement this using JSX!
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
+    // raw React API way
+    // const element = React.createElement('div', {
+    //   className: 'container',
+    //   children: 'Hello World',
+    // })
+    // JSX way
+    // const element = <div className='container'>Hello World</div>
+
+    // 4... Extra credit - 1 interpolation
+    // const className = 'container';
+    // const children = 'Hello World';
+    // const element = <div className={className}>{children}</div>
+
+    // 5... Extra credit - 2 spread props
+    const className = 'container';
+    const children = 'Hello World';
+    const props = {className, children}
+    const element = <div {...props} />
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
